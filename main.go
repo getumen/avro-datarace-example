@@ -101,11 +101,6 @@ func generateOCF(ctx context.Context) io.ReadCloser {
 
 			const featureNum = 100
 
-			features := make([]interface{}, featureNum)
-			for k := 0; k < featureNum; k++ {
-				features[k] = goavro.Union("string", fmt.Sprintf("f%d", k))
-			}
-
 			block = append(block, map[string]interface{}{
 				"user_id": goavro.Union("string", fmt.Sprintf("userID-%d", j)),
 			})
